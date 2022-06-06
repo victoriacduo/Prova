@@ -143,6 +143,8 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 			} catch (ParseException e) {
 				System.out.println(e);
 			}
+			
+			
 
 			for (int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
 				if (OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
@@ -161,6 +163,7 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 			OrcamentoProcess.salvar();
 			preencherTabela();
 			limparCampos();
+			tfId.setText(""+ (Integer.parseInt(OrcamentoProcess.orcamentos.get(OrcamentoProcess.orcamentos.size() - 1).getId()) + 1));
 		} else {
 			JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
 		}

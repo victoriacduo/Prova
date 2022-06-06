@@ -107,11 +107,11 @@ public class Orcamento {
 
 	@Override
 	public String toString() {
-		return id + "\t" + fornecedor + "\t" + produto + "\t" + preco + "\t" + maisBarato;
+		return id + "\t" + fornecedor + "\t" + produto + "\t" + preco + "\t" + maisBarato + "\n";
 	}
 
 	public String toCSV() {
-		return id + ";" + fornecedor + ";" + produto + ";" + preco + ";" + comprar();
+		return id + ";" + fornecedor + ";" + produto + ";" + preco + ";" + comprar() + "\n";
 	}
 
 }
