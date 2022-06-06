@@ -1,0 +1,25 @@
+package controllers;
+
+import java.util.ArrayList;
+
+import dao.OrcamentoDAO;
+import models.Orcamento;
+
+public class OrcamentoProcess {
+	
+	public static ArrayList<Orcamento> orcamentos = new ArrayList<>();
+	private static OrcamentoDAO od = new OrcamentoDAO();
+	
+	public static void abrir() {
+		orcamentos = od.ler();
+		if(orcamentos.size() == 0) {
+			orcamentos.add(new Orcamento(1, "AMD XPTO1 Ryzen 5", "Ryzen 5", 800.00));
+			orcamentos.add(new Orcamento(1, "AMD XPTO1 Ryzen 5", ));
+		}
+	}
+	
+	public static void salvar() {
+		od.escrever(orcamentos);
+	}
+
+}

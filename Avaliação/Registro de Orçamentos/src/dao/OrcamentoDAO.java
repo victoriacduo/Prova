@@ -24,11 +24,13 @@ public class OrcamentoDAO {
 		try {
 			br = new BufferedReader(new FileReader(path));
 			String linha = br.readLine();
+			
 			while (linha != null) {
 				o = new Orcamento(linha);
 				linhas.add(o);
 				linha = br.readLine();
 			}
+			
 			br.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);

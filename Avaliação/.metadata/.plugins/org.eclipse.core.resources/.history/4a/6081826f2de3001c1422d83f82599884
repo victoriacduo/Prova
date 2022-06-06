@@ -1,0 +1,19 @@
+package models;
+
+public class Orcamento {
+	
+	private int id;
+	private String fornecedor;
+	private String produto;
+	private double preco;
+	private boolean maisBarato;
+	
+	public Orcamento(int id, String fornecedor, String produto, double preco, boolean maisBarato) {
+		this.id = id;
+		this.fornecedor = fornecedor;
+		this.produto =  produto;
+		this.preco = preco;
+		this.maisBarato = maisBarato;
+	}
+
+}

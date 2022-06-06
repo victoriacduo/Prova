@@ -40,7 +40,7 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 
 	public OrcamentoForm() {
 
-		setTitle("Cadastro de Manutenções");
+		setTitle("Cadastro de Produtos");
 		setBounds(150, 180, 430, 390);
 		painel = new JPanel();
 		painel.setBackground(new Color(189, 150, 147));
@@ -125,7 +125,7 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 			}
 		}
 		for (Orcamento o : OrcamentoProcess.orcamentos) {
-			tableModel.addRow(new String[] {o.getId(), o.getFornecedor(), o.getProduto(), o.getPreco()});
+			tableModel.addRow(new String[] { o.getId(), o.getFornecedor(), o.getProduto(), o.getPreco(), o.comprar() });
 		}
 	}
 
@@ -143,20 +143,21 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 			} catch (ParseException e) {
 				System.out.println(e);
 			}
-			
-			for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
-				if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
-					if(OrcamentoProcess.orcamentos.get(i).getPreco("a") > preco) {
+
+			for (int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+				if (OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
+					if (OrcamentoProcess.orcamentos.get(i).getPreco("a") > preco) {
 						OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
 						comprar = true;
 					}
 				} else {
 					comprar = true;
 				}
-				
+
 			}
-			
-			OrcamentoProcess.orcamentos.add(new Orcamento(id, tfFornecedor.getText(), tfProduto.getText(), preco, comprar));
+
+			OrcamentoProcess.orcamentos
+					.add(new Orcamento(id, tfFornecedor.getText(), tfProduto.getText(), preco, comprar));
 			OrcamentoProcess.salvar();
 			preencherTabela();
 			limparCampos();
@@ -191,20 +192,21 @@ public class OrcamentoForm extends JDialog implements ActionListener {
 			} catch (ParseException e) {
 				System.out.println(e);
 			}
-			
-			for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
-				if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
-					if(OrcamentoProcess.orcamentos.get(i).getPreco("a") > preco) {
+
+			for (int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+				if (OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
+					if (OrcamentoProcess.orcamentos.get(i).getPreco("a") > preco) {
 						OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
 						comprar = true;
 					}
 				} else {
 					comprar = true;
 				}
-				
+
 			}
 
-			OrcamentoProcess.orcamentos.set(indice, new Orcamento(id, tfFornecedor.getText(), tfProduto.getText(), preco, comprar));
+			OrcamentoProcess.orcamentos.set(indice,
+					new Orcamento(id, tfFornecedor.getText(), tfProduto.getText(), preco, comprar));
 
 			limparCampos();
 		} else {
